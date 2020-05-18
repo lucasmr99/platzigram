@@ -1,6 +1,6 @@
 const page = require('page');
 const empty = require('empty-element');
-const template= require('./template')
+const template= require('./template');
 
 
 page('/signup', function(ctx, next){
