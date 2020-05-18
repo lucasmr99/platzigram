@@ -27,6 +27,7 @@ function compile(wath){
     function rebundle(){
         return bundle
             .bundle()
+            .on('error', function(err){ console.log(err); this.emit('end') })
             .pipe(source('bundle.js'))
             .pipe(gulp.dest('./public'))
     } 
@@ -44,25 +45,6 @@ function compile(wath){
 function bundle(){
     return compile(false);
 }
-
-
-/*const paths = {
-    source: "./src",
-    build: "./public"
-}
-
-function javascriptBuild(){
-    return(
-        brawserify({
-            entries: [`${paths.source}/app.js`],
-            transform: [babel.configure({ presets: ["@babel/preset-env"] })]
-        })
-        .bundle()
-        .pipe(source("bundle.js"))
-        .pipe(gulp.dest(`${paths.build}`))
-    );
-}
-*/
 
 gulp.task('watch', ()=>{
     return compile(true);
