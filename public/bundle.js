@@ -2922,7 +2922,7 @@ require('./signin');
 
 page();
 
-},{"./homepage":16,"./signin":20,"./signup":22,"page":11}],16:[function(require,module,exports){
+},{"./homepage":16,"./signin":21,"./signup":23,"page":11}],16:[function(require,module,exports){
 "use strict";
 
 var page = require('page');
@@ -2933,14 +2933,31 @@ var template = require('./template');
 
 page('/', function (ctx, next) {
   var main = document.getElementById('main-container');
-  empty(main).appendChild(template);
+  var pictures = [{
+    user: {
+      username: 'lucas99',
+      avatar: 'cerdo.webp'
+    },
+    url: 'office.jpg',
+    likes: 4,
+    liked: true
+  }, {
+    user: {
+      username: 'lucas99',
+      avatar: 'cerdo.webp'
+    },
+    url: 'office.jpg',
+    likes: 24,
+    liked: true
+  }];
+  empty(main).appendChild(template(pictures));
 });
 
 },{"./template":17,"empty-element":3,"page":11}],17:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <div class=\"container timeline\">\n        <div class=\"row\">\n            <div class=\"col s12 m10 offset-m1 l6 offset-l3\">\n            content\n            </div>    \n        </div>\n    </div>\n"]);
+  var data = _taggedTemplateLiteral(["\n        <div class=\"container timeline\">\n            <div class=\"row\">\n                <div class=\"col s12 m10 offset-m1 l6 offset-l3\">\n                    ", "\n                </div>    \n            </div>\n        </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2955,10 +2972,16 @@ var yo = require('yo-yo');
 
 var layout = require('../layout');
 
-var template = yo(_templateObject());
-module.exports = layout(template);
+var picture = require('../picture-card');
 
-},{"../layout":19,"yo-yo":13}],18:[function(require,module,exports){
+module.exports = function (pictures) {
+  var el = yo(_templateObject(), pictures.map(function (pic) {
+    return picture(pic);
+  }));
+  return layout(el);
+};
+
+},{"../layout":19,"../picture-card":20,"yo-yo":13}],18:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
@@ -3003,6 +3026,27 @@ module.exports = function layout(content) {
 },{"yo-yo":13}],20:[function(require,module,exports){
 "use strict";
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    <div class=\"card\">\n        <div class=\"card-image\">\n          <img class=\"activator\" src=\"", "\">\n        </div>\n        <div class=\"card-content\">\n          <a href=\"/user/", "\" class=\"card-title display-mod\">\n            <img src=\"", "\" class=\"avatar\"/>\n            <span class=\"username\">", "</span>\n          </a>\n          <small class=\"right time\" >Hace 1 dia</small>\n          <p>\n            <a class=\"left\" href=\"#\"><i class=\"far fa-heart\"></i></a>\n            <span class=\"likes left\">", " Me gusta</span>\n          </p>\n        </div>\n    </div>"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var yo = require('yo-yo');
+
+module.exports = function (pic) {
+  return yo(_templateObject(), pic.url, pic.user.username, pic.user.avatar, pic.user.username, pic.likes);
+};
+
+},{"yo-yo":13}],21:[function(require,module,exports){
+"use strict";
+
 var page = require('page');
 
 var empty = require('empty-element');
@@ -3016,7 +3060,7 @@ page('/signin', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template":21,"empty-element":3,"page":11,"yo-yo":13}],21:[function(require,module,exports){
+},{"./template":22,"empty-element":3,"page":11,"yo-yo":13}],22:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
@@ -3038,7 +3082,7 @@ var landing = require('../landing/index');
 var signinForm = yo(_templateObject());
 module.exports = landing(signinForm);
 
-},{"../landing/index":18,"yo-yo":13}],22:[function(require,module,exports){
+},{"../landing/index":18,"yo-yo":13}],23:[function(require,module,exports){
 "use strict";
 
 var page = require('page');
@@ -3052,7 +3096,7 @@ page('/signup', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template":23,"empty-element":3,"page":11}],23:[function(require,module,exports){
+},{"./template":24,"empty-element":3,"page":11}],24:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
