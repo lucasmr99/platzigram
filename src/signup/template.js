@@ -7,10 +7,10 @@ const signuForm = yo`
             <div class="signup-box">
                 <h1 class="platzigram">Platzigram</h1>
                 <form class="signup-form">
-                    <h2>Registrate</h2>
+                    <h2>Registrate para ver las imagenes de tus amigos</h2>
                     <div class="section">
-                        <a class="btn btn-fb hiden-on-small-only">Inicia sesion con facebook </a>
-                        <a class="btn btn-fb hide-on-med-and-up">Inicia sesion </a>
+                        <a class="btn btn-fb hide-on-small-only">Inicia sesion con facebook </a>
+                        <a class="btn btn-fb hide-on-med-and-up"><i class="fab fa-facebook"></i> Inicia sesion </a>
                     </div>
                     <div class="divider"></div>
                     <div class="section">

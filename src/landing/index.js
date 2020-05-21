@@ -3,7 +3,7 @@ const yo = require('yo-yo');
 
 module.exports = function landingBox(box){
 
-    return yo`<div class="container">
+    return yo`<div class="container landing">
                           <div class="row">
                               <div class="col s10 push-s1">
                                   <div class="row">

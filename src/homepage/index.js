@@ -1,7 +1,9 @@
 const page = require('page');
+const empty = require('empty-element');
+const template= require('./template')
 
-const main = document.getElementById('main-container');
 
-page('/',function(ctx, next){
-  main.innerHTML = 'Home  <a href="/signup">Signup</a>'
+page('/', function(ctx, next){
+    const main = document.getElementById('main-container');
+    empty(main).appendChild(template);
 })

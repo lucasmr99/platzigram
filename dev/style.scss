@@ -9,7 +9,7 @@ body{
     font-family: "Monserrat", sans-serif;
 }
 
-#main-container{
+.landing{
     margin: 30px auto;
 }
 
@@ -34,6 +34,10 @@ body{
     font-size: 42px;
 }
 
+.platzigram{
+    color: $secundary-color !important; 
+}
+
 .signup-form {
     width: 65%;
     margin: 0 auto;
@@ -41,7 +45,7 @@ body{
 
 .signup-form h2{
     color: #a5a7aa;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .signup-form .btn.btn-fb{
@@ -55,4 +59,12 @@ body{
 
 .signup-form .btn.btn-signup {
     background-color: #125688;
+}
+
+.header{
+    background-color:white;
+}
+
+.timeline{
+    padding: 30px 0;
 }
