@@ -3126,3 +3126,9 @@ body { background: #fafafa; color: #125688; font-family: "Monserrat", sans-serif
 .card .fa-heart { color: #125688; }
 
 .card .card-content .card-title { display: inline; }
+
+.card .fas.fa-heart { color: red; display: none; }
+
+.card.liked .fa-heart { display: none; }
+
+.card.liked .fas.fa-heart { display: block; }

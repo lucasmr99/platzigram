@@ -13,7 +13,7 @@ page('/', function(ctx, next){
             },
             url: 'office.jpg',
             likes: 4,
-            liked: true
+            liked: false
 
         },
         {
@@ -23,7 +23,7 @@ page('/', function(ctx, next){
             },
             url: 'office.jpg',
             likes: 24,
-            liked: true
+            liked: false
 
         },
     ];

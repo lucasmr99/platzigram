@@ -2940,7 +2940,7 @@ page('/', function (ctx, next) {
     },
     url: 'office.jpg',
     likes: 4,
-    liked: true
+    liked: false
   }, {
     user: {
       username: 'lucas99',
@@ -2948,7 +2948,7 @@ page('/', function (ctx, next) {
     },
     url: 'office.jpg',
     likes: 24,
-    liked: true
+    liked: false
   }];
   empty(main).appendChild(template(pictures));
 });
@@ -3027,7 +3027,7 @@ module.exports = function layout(content) {
 "use strict";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <div class=\"card\">\n        <div class=\"card-image\">\n          <img class=\"activator\" src=\"", "\">\n        </div>\n        <div class=\"card-content\">\n          <a href=\"/user/", "\" class=\"card-title display-mod\">\n            <img src=\"", "\" class=\"avatar\"/>\n            <span class=\"username\">", "</span>\n          </a>\n          <small class=\"right time\" >Hace 1 dia</small>\n          <p>\n            <a class=\"left\" href=\"#\"><i class=\"far fa-heart\"></i></a>\n            <span class=\"likes left\">", " Me gusta</span>\n          </p>\n        </div>\n    </div>"]);
+  var data = _taggedTemplateLiteral(["\n    <div class=\"card  ", "\">\n        <div class=\"card-image\">\n          <img class=\"activator\" src=\"", "\">\n        </div>\n        <div class=\"card-content\">\n          <a href=\"/user/", "\" class=\"card-title display-mod\">\n            <img src=\"", "\" class=\"avatar\"/>\n            <span class=\"username\">", "</span>\n          </a>\n          <small class=\"right time\" >Hace 1 dia</small>\n          <p>\n            <a class=\"left\" href=\"#\" onclick=\"", "\"><i class=\"far fa-heart\"></i></a>\n            <a class=\"left\" href=\"#\" onclick=\"", "\"><i class=\"fas fa-heart\"></i></a>\n            <span class=\"likes left\">", " Me gusta</span>\n          </p>\n        </div>\n    </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -3040,8 +3040,23 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var yo = require('yo-yo');
 
-module.exports = function (pic) {
-  return yo(_templateObject(), pic.url, pic.user.username, pic.user.avatar, pic.user.username, pic.likes);
+module.exports = function pictureCard(pic) {
+  var el;
+
+  function render(picture) {
+    return yo(_templateObject(), picture.liked ? 'liked' : '', picture.url, picture.user.username, picture.user.avatar, picture.user.username, like.bind(null, true), like.bind(null, false), picture.likes);
+  }
+
+  function like(liked) {
+    pic.liked = liked;
+    pic.likes += liked ? 1 : -1;
+    var newEl = render(pic);
+    yo.update(el, newEl);
+    return false;
+  }
+
+  el = render(pic);
+  return el;
 };
 
 },{"yo-yo":13}],21:[function(require,module,exports){
