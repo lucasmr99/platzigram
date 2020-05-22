@@ -13,7 +13,8 @@ page('/', function(ctx, next){
             },
             url: 'office.jpg',
             likes: 4,
-            liked: false
+            liked: false,
+            createdAt: new Date()
 
         },
         {
@@ -23,7 +24,8 @@ page('/', function(ctx, next){
             },
             url: 'office.jpg',
             likes: 24,
-            liked: false
+            liked: false,
+            createdAt: new Date().setDate(new Date().getDate() - 10)
 
         },
     ];
