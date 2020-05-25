@@ -14,6 +14,8 @@
   "dependencies": {
     "empty-element": "^1.0.0",
     "express": "^4.17.1",
+    "intl-messageformat": "^8.3.16",
+    "intl-relativeformat": "^6.4.3",
     "materialize-css": "^1.0.0",
     "moment": "^2.26.0",
     "page": "^1.11.6",

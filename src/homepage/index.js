@@ -12,7 +12,7 @@ page('/', function(ctx, next){
                 avatar: 'cerdo.webp'
             },
             url: 'office.jpg',
-            likes: 4,
+            likes: 0,
             liked: false,
             createdAt: new Date()
 
@@ -23,7 +23,7 @@ page('/', function(ctx, next){
                 avatar: 'cerdo.webp'
             },
             url: 'office.jpg',
-            likes: 24,
+            likes: 1,
             liked: false,
             createdAt: new Date().setDate(new Date().getDate() - 10)
 
