@@ -13079,7 +13079,7 @@ module.exports = function layout(content) {
 "use strict";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <div class=\"card  ", "\">\n        <div class=\"card-image\">\n          <img class=\"activator\" src=\"", "\">\n        </div>\n        <div class=\"card-content\">\n          <a href=\"/user/", "\" class=\"card-title display-mod\">\n            <img src=\"", "\" class=\"avatar\"/>\n            <span class=\"username\">", "</span>\n          </a>\n          <small class=\"right time\" >", "</small>\n          <p>\n            <a class=\"left\" href=\"#\" onclick=\"", "\"><i class=\"far fa-heart\"></i></a>\n            <a class=\"left\" href=\"#\" onclick=\"", "\"><i class=\"fas fa-heart\"></i></a>\n            <span class=\"likes left\">", " Me gusta</span>\n          </p>\n        </div>\n    </div>"]);
+  var data = _taggedTemplateLiteral(["\n    <div class=\"card  ", "\">\n        <div class=\"card-image\">\n          <img class=\"activator\" src=\"", "\">\n        </div>\n        <div class=\"card-content\">\n          <a href=\"/user/", "\" class=\"card-title display-mod\">\n            <img src=\"", "\" class=\"avatar\"/>\n            <span class=\"username\">", "</span>\n          </a>\n          <small class=\"right time\" >", "</small>\n          <p>\n            <a class=\"left\" href=\"#\" onclick=\"", "\"><i class=\"far fa-heart\"></i></a>\n            <a class=\"left\" href=\"#\" onclick=\"", "\"><i class=\"fas fa-heart\"></i></a>\n            <span class=\"likes left\">", "</span>\n          </p>\n        </div>\n    </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13217,11 +13217,13 @@ var en = require('./en-US');
 var MESSAGES = {};
 MESSAGES.es = es;
 MESSAGES['en-US'] = en;
-var locale = 'es';
+var locale = 'en-US'; //console.log(MESSAGES)
+
 module.exports = {
   messages: function messages(text) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var msg = new intlMessageFormat(MESSAGES[locale][text], locale);
+    opts = opts || {};
+    var msg = new intlMessageFormat["default"](MESSAGES[locale][text], locale, null);
     return msg.format(opts);
   },
   date: new intlReltiveFormat(locale)

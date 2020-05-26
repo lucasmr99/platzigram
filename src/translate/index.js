@@ -12,12 +12,15 @@ let MESSAGES  = {};
 MESSAGES.es = es;
 MESSAGES['en-US'] = en;
 
-let locale = 'es'
+let locale = 'en-US'
+
+//console.log(MESSAGES)
 
 module.exports = {
     messages: function (text, opts= {}) {
-                  let msg = new intlMessageFormat(MESSAGES[locale][text], locale);
-                  return msg.format(opts);
+                opts = opts || {}
+                let msg = new intlMessageFormat.default(MESSAGES[locale][text], locale, null);
+                return msg.format(opts);
               },
     date: new intlReltiveFormat(locale)
 }

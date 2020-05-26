@@ -18,7 +18,7 @@ module.exports = function pictureCard(pic){
           <p>
             <a class="left" href="#" onclick="${like.bind(null , true)}"><i class="far fa-heart"></i></a>
             <a class="left" href="#" onclick="${like.bind(null, false)}"><i class="fas fa-heart"></i></a>
-            <span class="likes left">${translate.messages('likes', {likes: picture.likes})} Me gusta</span>
+            <span class="likes left">${translate.messages('likes', {likes: picture.likes})}</span>
           </p>
         </div>
     </div>`
