@@ -1,4 +1,5 @@
 const yo = require('yo-yo');    
+const translate = require('../translate')
 
 module.exports = function layout(content){
     return yo`
@@ -15,7 +16,7 @@ module.exports = function layout(content){
                     <i class="fas fa-user"></i>
                 </a>
                 <ul class="dropdown-content" id="drop-user">
-                    <li><a href="#">Salir</a></li>
+                    <li><a href="#">${translate.messages('logout')}</a></li>
                 </ul>
             </div>
         </div>

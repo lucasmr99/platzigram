@@ -12970,9 +12970,33 @@ require('./signup');
 
 require('./signin');
 
+require('./footer');
+
 page();
 
-},{"./homepage":31,"./signin":36,"./signup":38,"moment":22,"moment/locale/es":21,"page":26}],31:[function(require,module,exports){
+},{"./footer":31,"./homepage":32,"./signin":37,"./signup":39,"moment":22,"moment/locale/es":21,"page":26}],31:[function(require,module,exports){
+"use strict";
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    <footer class=\"site-footer\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col s12 l3 center-align\"><a class=\"dropdown-trigger btn\" href=\"#\" data-target=\"dropdown1\">", "\n            <ul class=\"dropdown-content\" id=\"dropdown1\">\n              <li><a href=\"#!\">", "</a></li>\n              <li><a href=\"#!\">Ingles</a>", "</li>\n            </ul></a></div>\n        <div class=\"col s12 l3 push-l6 center-align\">\xA9 2016 Platzigram</div>\n      </div>\n    </div>\n    </footer>\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var yo = require('yo-yo');
+
+var translate = require('../translate');
+
+var el = yo(_templateObject(), translate.messages('language'), translate.messages('spanish'), translate.messages('english'));
+document.body.appendChild(el);
+
+},{"../translate":43,"yo-yo":28}],32:[function(require,module,exports){
 "use strict";
 
 var page = require('page');
@@ -13005,7 +13029,7 @@ page('/', function (ctx, next) {
   empty(main).appendChild(template(pictures));
 });
 
-},{"./template":32,"empty-element":3,"page":26}],32:[function(require,module,exports){
+},{"./template":33,"empty-element":3,"page":26}],33:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
@@ -13033,7 +13057,7 @@ module.exports = function (pictures) {
   return layout(el);
 };
 
-},{"../layout":34,"../picture-card":35,"yo-yo":28}],33:[function(require,module,exports){
+},{"../layout":35,"../picture-card":36,"yo-yo":28}],34:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
@@ -13054,11 +13078,11 @@ module.exports = function landingBox(box) {
   return yo(_templateObject(), box);
 };
 
-},{"yo-yo":28}],34:[function(require,module,exports){
+},{"yo-yo":28}],35:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n<div>\n<nav class=\"header\">\n<div class=\"nav-wrapper\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col s12 m6 offset-m1\">\n                <a href=\"/\" class=\"platzigram brand-logo\">Platzigram</a>\n            </div>\n            <div class=\"col s2 m6 push-m10 push-s10\">\n                <a href=\"#\" class=\"btn btn-large btn-flat dropdown-button\" data-activate=\"drop-user\">\n                    <i class=\"fas fa-user\"></i>\n                </a>\n                <ul class=\"dropdown-content\" id=\"drop-user\">\n                    <li><a href=\"#\">Salir</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>\n</nav>\n<div class=\"content\">\n    ", "\n</div>\n</div>\n"]);
+  var data = _taggedTemplateLiteral(["\n<div>\n<nav class=\"header\">\n<div class=\"nav-wrapper\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col s12 m6 offset-m1\">\n                <a href=\"/\" class=\"platzigram brand-logo\">Platzigram</a>\n            </div>\n            <div class=\"col s2 m6 push-m10 push-s10\">\n                <a href=\"#\" class=\"btn btn-large btn-flat dropdown-button\" data-activate=\"drop-user\">\n                    <i class=\"fas fa-user\"></i>\n                </a>\n                <ul class=\"dropdown-content\" id=\"drop-user\">\n                    <li><a href=\"#\">", "</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>\n</nav>\n<div class=\"content\">\n    ", "\n</div>\n</div>\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13071,11 +13095,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var yo = require('yo-yo');
 
+var translate = require('../translate');
+
 module.exports = function layout(content) {
-  return yo(_templateObject(), content);
+  return yo(_templateObject(), translate.messages('logout'), content);
 };
 
-},{"yo-yo":28}],35:[function(require,module,exports){
+},{"../translate":43,"yo-yo":28}],36:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
@@ -13115,7 +13141,7 @@ module.exports = function pictureCard(pic) {
   return el;
 };
 
-},{"../translate":42,"yo-yo":28}],36:[function(require,module,exports){
+},{"../translate":43,"yo-yo":28}],37:[function(require,module,exports){
 "use strict";
 
 var page = require('page');
@@ -13131,11 +13157,11 @@ page('/signin', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template":37,"empty-element":3,"page":26,"yo-yo":28}],37:[function(require,module,exports){
+},{"./template":38,"empty-element":3,"page":26,"yo-yo":28}],38:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <div class=\"col s12 m7\">\n        <div class=\"row\">\n            <div class=\"signup-box\">\n                <h1 class=\"platzigram\">Platzigram</h1>\n                <form class=\"signup-form\">\n                    <div class=\"section\">\n                        <a class=\"btn btn-fb hide-on-small-only\">Inicia sesion con facebook </a>\n                        <a class=\"btn btn-fb hide-on-med-and-up\"><i class=\"fab fa-facebook\"></i>Inicia sesion </a>\n                    </div>\n                    <div class=\"divider\"></div>\n                    <div class=\"section\">\n                        <input type=\"text\" name=\"usernamer\" placeholder=\"Nombre de Usuario\">\n                        <input type=\"password\" name=\"password\" placeholder=\"Contrase\xF1a\">\n                        <button class=\"btn waves-effect waves-light btn-signup\" type=\"submit\">Inicia Sesion</button>\n                    </div>\n                </form>\n            </div>\n        </div>\n    <div class=\"row\">\n        <div class=\"login-box\">\n            No Tienes una cuenta? <a href=\"/signup\">Registrate</a>\n        </div>\n    </div>"]);
+  var data = _taggedTemplateLiteral(["\n    <div class=\"col s12 m7\">\n        <div class=\"row\">\n            <div class=\"signup-box\">\n                <h1 class=\"platzigram\">Platzigram</h1>\n                <form class=\"signup-form\">\n                    <div class=\"section\">\n                        <a class=\"btn btn-fb hide-on-small-only\">", "</a>\n                        <a class=\"btn btn-fb hide-on-med-and-up\"><i class=\"fab fa-facebook\"></i>", "</a>\n                    </div>\n                    <div class=\"divider\"></div>\n                    <div class=\"section\">\n                        <input type=\"text\" name=\"usernamer\" placeholder=\"", "\">\n                        <input type=\"password\" name=\"password\" placeholder=\"", "\">\n                        <button class=\"btn waves-effect waves-light btn-signup\" type=\"submit\">", "</button>\n                    </div>\n                </form>\n            </div>\n        </div>\n    <div class=\"row\">\n        <div class=\"login-box\">\n            ", " <a href=\"/signup\">", "</a>\n        </div>\n    </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13150,10 +13176,12 @@ var yo = require('yo-yo');
 
 var landing = require('../landing/index');
 
-var signinForm = yo(_templateObject());
+var translate = require('../translate');
+
+var signinForm = yo(_templateObject(), translate.messages('signup.facebook'), translate.messages('signup.text'), translate.messages('username'), translate.messages('password'), translate.messages('signup.text'), translate.messages('signin.not-have-account'), translate.messages('signup.call-to-action'));
 module.exports = landing(signinForm);
 
-},{"../landing/index":33,"yo-yo":28}],38:[function(require,module,exports){
+},{"../landing/index":34,"../translate":43,"yo-yo":28}],39:[function(require,module,exports){
 "use strict";
 
 var page = require('page');
@@ -13167,11 +13195,11 @@ page('/signup', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template":39,"empty-element":3,"page":26}],39:[function(require,module,exports){
+},{"./template":40,"empty-element":3,"page":26}],40:[function(require,module,exports){
 "use strict";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <div class=\"col s12 m7\">\n        <div class=\"row\">\n            <div class=\"signup-box\">\n                <h1 class=\"platzigram\">Platzigram</h1>\n                <form class=\"signup-form\">\n                    <h2>Registrate para ver las imagenes de tus amigos</h2>\n                    <div class=\"section\">\n                        <a class=\"btn btn-fb hide-on-small-only\">Inicia sesion con facebook </a>\n                        <a class=\"btn btn-fb hide-on-med-and-up\"><i class=\"fab fa-facebook\"></i> Inicia sesion </a>\n                    </div>\n                    <div class=\"divider\"></div>\n                    <div class=\"section\">\n                        <input type=\"email\" name=\"email\" placeholder=\"Correo Electronico\">\n                        <input type=\"text\" name=\"name\" placeholder=\"Nombre Completo\">\n                        <input type=\"text\" name=\"usernamer\" placeholder=\"Nombre de Usuario\">\n                        <input type=\"password\" name=\"password\" placeholder=\"Contrase\xF1a\">\n                        <button class=\"btn waves-effect waves-light btn-signup\" type=\"submit\">Registrate</button>\n                    </div>\n                </form>\n            </div>\n        </div>\n    <div class=\"row\">\n        <div class=\"login-box\">\n            Tienes una cuenta? <a href=\"/signin\">Entrar</a>\n        </div>\n    </div>"]);
+  var data = _taggedTemplateLiteral(["\n    <div class=\"col s12 m7\">\n        <div class=\"row\">\n            <div class=\"signup-box\">\n                <h1 class=\"platzigram\">Platzigram</h1>\n                <form class=\"signup-form\">\n                    <h2>", "</h2>\n                    <div class=\"section\">\n                        <a class=\"btn btn-fb hide-on-small-only\">", "</a>\n                        <a class=\"btn btn-fb hide-on-med-and-up\"><i class=\"fab fa-facebook\"></i>", "</a>\n                    </div>\n                    <div class=\"divider\"></div>\n                    <div class=\"section\">\n                        <input type=\"email\" name=\"email\" placeholder=\"", "\">\n                        <input type=\"text\" name=\"name\" placeholder=\"", "\">\n                        <input type=\"text\" name=\"usernamer\" placeholder=\"", "\">\n                        <input type=\"password\" name=\"password\" placeholder=\"", "\">\n                        <button class=\"btn waves-effect waves-light btn-signup\" type=\"submit\">", "</button>\n                    </div>\n                </form>\n            </div>\n        </div>\n    <div class=\"row\">\n        <div class=\"login-box\">\n            ", " <a href=\"/signin\">", "</a>\n        </div>\n    </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13186,24 +13214,56 @@ var yo = require('yo-yo');
 
 var landing = require('../landing/index');
 
-var signuForm = yo(_templateObject());
+var translte = require('../translate');
+
+var signuForm = yo(_templateObject(), translte.messages('signup.subheading'), translte.messages('signup.facebook'), translte.messages('signup.text'), translte.messages('email'), translte.messages('fullname'), translte.messages('username'), translte.messages('password'), translte.messages('signup.call-to-action'), translte.messages('signup.have-account'), translte.messages('signin'));
 module.exports = landing(signuForm);
 
-},{"../landing/index":33,"yo-yo":28}],40:[function(require,module,exports){
+},{"../landing/index":34,"../translate":43,"yo-yo":28}],41:[function(require,module,exports){
 "use strict";
 
 module.exports = {
-  likes: '{likes, plural, ' + '=0 {no likes.}' + '=1 {# like.}' + 'other {# likes.}}'
-};
-
-},{}],41:[function(require,module,exports){
-"use strict";
-
-module.exports = {
-  likes: '{likes, number} me gusta'
+  likes: '{likes, plural, ' + '=0 {no likes.}' + '=1 {# like.}' + 'other {# likes.}}',
+  'logout': 'Logout',
+  'english': 'English',
+  'spanish': 'Spanish',
+  'signup.subheading': 'Signup to watch your friends\' pictures studying at Platzi ',
+  'signup.facebook': 'Signup with Facebook',
+  'signup.text': 'Sinup',
+  'email': 'Email',
+  'username': 'Username',
+  'fullname': 'Fullname',
+  'password': 'Password',
+  'signup.call-to-action': 'Signup',
+  'signup.have-account': 'Already have an account?',
+  'signin': 'Signin',
+  'signin.not-have-account': 'Don\'t have account?',
+  'language': 'Language'
 };
 
 },{}],42:[function(require,module,exports){
+"use strict";
+
+module.exports = {
+  'likes': '{likes, number} me gusta',
+  'logout': 'Salir',
+  'english': 'Ingles',
+  'spanish': 'Español',
+  'signup.subheading': 'Registrate para ver las imagenes de tus amigos',
+  'signup.facebook': 'Iniciar sesion con Facebook',
+  'signup.text': 'Iniciar sesion',
+  'email': 'Correo Electronico',
+  'username': 'Nombre de Usuario',
+  'fullname': 'Nombre Completo',
+  'password': 'Contraseña',
+  'signup.call-to-action': 'Registrate',
+  'signup.have-account': 'Tienes una cuenta?',
+  'signin': 'Entrar',
+  'signin.not-have-account': 'No tienes una cuenta?',
+  'language': 'Idioma'
+};
+
+},{}],43:[function(require,module,exports){
 "use strict";
 
 var intlReltiveFormat = require('intl-relativeformat');
@@ -13223,10 +13283,13 @@ module.exports = {
   messages: function messages(text) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     opts = opts || {};
+    console.log('opts' + opts);
     var msg = new intlMessageFormat["default"](MESSAGES[locale][text], locale, null);
+    console.log('msg:' + msg);
+    console.log('formt' + msg.format(opts));
     return msg.format(opts);
   },
   date: new intlReltiveFormat(locale)
 };
 
-},{"./en-US":40,"./es":41,"intl-messageformat":17,"intl-relativeformat":20}]},{},[30]);
+},{"./en-US":41,"./es":42,"intl-messageformat":17,"intl-relativeformat":20}]},{},[30]);

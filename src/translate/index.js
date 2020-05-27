@@ -19,7 +19,10 @@ let locale = 'en-US'
 module.exports = {
     messages: function (text, opts= {}) {
                 opts = opts || {}
+                console.log('opts' + opts)
                 let msg = new intlMessageFormat.default(MESSAGES[locale][text], locale, null);
+                console.log( 'msg:' + msg)
+                console.log( 'formt' + msg.format(opts))
                 return msg.format(opts);
               },
     date: new intlReltiveFormat(locale)
